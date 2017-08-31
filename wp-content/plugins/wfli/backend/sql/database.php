@@ -66,12 +66,16 @@ function jal_install() {
 	manufacturer_fk int(15) DEFAULT NULL,
 	extra_fk int(15) DEFAULT NULL,
 	img varchar(150) DEFAULT NULL,
+	url varchar(150) DEFAULT NULL,
+	spec_sheet varchar(150) DEFAULT NULL,
+	model_number int(15) DEFAULT NULL,
 	fixture varchar(15) DEFAULT NULL,
 	watt int(10) DEFAULT NULL,
 	title varchar(50) DEFAULT NULL,
 	volt int(10) DEFAULT NULL,
 	sku varchar(20) NOT NULL,
 	is_featured binary(20) DEFAULT NULL,
+	int_or_ext binary(20) DEFAULT NULL,
 	categories char(15) DEFAULT NULL,
 	PRIMARY KEY (product_id),
 	FOREIGN KEY (manufacturer_fk) REFERENCES $oo_manufacturer(manufacturer_id),
@@ -109,5 +113,4 @@ function jal_install() {
 
 	add_option( 'jal_db_version', $jal_db_version );
 }
-register_activation_hook( __FILE__, 'jal_install' );
 ?>
