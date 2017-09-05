@@ -2,7 +2,35 @@
 /*SAVING DATA INTO DB - FUNCTIONS GO HERE*/
 function oo_product_details_meta_save($post_id) {
 	
-	$wd_is_autosave = wp_is_post_autosave ( $post_id );
+global $wpdb;
+$wpdb->insert('wfli_oo_speciality', array(
+							'speciality_id' => 11,	
+							'title' => 'a',
+							'description' => 'b',
+							'status' => 'y'
+                            ), array(
+                            '%d',
+                            '%s',
+                            '%s',
+                            '%s'
+							)
+    );
+	$wpdb->insert( 
+	'wfli_oo_speciality', 
+	array( 
+		'speciality_id' => 123, 	
+		'title' => 'a',
+		'description' => 'b',
+		'status' => 'y'
+), 
+	array(  
+		'%d',
+		'%s',
+		'%s',
+		'%s'
+	) 
+);
+	//$wd_is_autosave = wp_is_post_autosave ( $post_id );
 	$wd_is_revision = wp_is_post_revision ( $post_id );
     $wd_is_valid_nonce = ( isset ( $_POST [ 'wd_product_details_nonce' ] ) && wp_verify_nonce ( $_POST[ 'wd_product_details_nonce' ], basename ( __FILE__ )  ) )? true : false;
 	
@@ -150,6 +178,71 @@ function oo_product_details_meta_save($post_id) {
     if ( !current_user_can( 'edit_post', $post->ID ))
         return $post->ID;
 	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+//$name = $_POST['name'];
+	
+	
+	
+	
+$table_name = $wpdb->prefix . "oo_product";
+$wpdb->insert($table_name, array(
+							'product_id' => 11,
+							'manufacturer_fk' => 11,
+							'extra_fk' => 11,
+							'img' => 'wd_product_url',
+							'url' => 'wd_product_url',
+							'spec_sheet' => 'wd_product_url',
+							'model_number' => 'wd_product_url',
+							'fixture' => 'wd_product_url',
+							'watt' => 'wd_product_url',
+							'title' => 'wd_product_url',
+							'volt' => 'wd_product_url',
+							'sku' => 'wd_product_url',
+							'is_featured' => 'wd_product_url',
+							'int_or_ext' => 'wd_product_url',
+							'categories' => 'wd_product_url'
+                            ), array(
+                            '%d',
+                            '%d',
+                            '%d',
+                            '%s',
+                            '%s',
+                            '%s',
+                            '%d',
+                            '%s',
+                            '%d',
+                            '%s',
+                            '%d',
+                            '%s',
+                            '%d',
+                            '%s'
+							)
+    );
+	
+	
+	
+	
+
    
 }
 
